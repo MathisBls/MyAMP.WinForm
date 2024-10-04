@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "0eLPRLg3jOk=",
+  "success": true,
+  "projectFilePath": "G:\\projet\\WebDigit\\app\\MyAMP\\MyAMP\\MyAMP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asuki\\.nuget\\packages\\iniparser\\1.0.1\\iniparser.1.0.1.nupkg.sha512",
+    "C:\\Users\\Asuki\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Asuki\\.nuget\\packages\\salaros.configparser\\0.3.8\\salaros.configparser.0.3.8.nupkg.sha512"
+  ],
+  "logs": []
+}
