@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panelSideMenu = new Panel();
             btnLogs = new Button();
             btnSubscription = new Button();
@@ -48,13 +50,25 @@
             panelLogo = new Panel();
             pictureBox1 = new PictureBox();
             panelHeader = new Panel();
+            profileIcon = new PictureBox();
+            localhostIcon = new PictureBox();
+            websiteIcon = new PictureBox();
             panelContainer = new Panel();
+            startApache = new Button();
+            startMySQL = new Button();
+            statusApacheCircle = new Panel();
+            statusSQLCircle = new Panel();
+            notifyIcon1 = new NotifyIcon(components);
             panelSideMenu.SuspendLayout();
             panelPreferencesSubmenu.SuspendLayout();
             panelVersionsSubmenu.SuspendLayout();
             panelProfileSubmenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)profileIcon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)localhostIcon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)websiteIcon).BeginInit();
             SuspendLayout();
             // 
             // panelSideMenu
@@ -78,12 +92,13 @@
             panelSideMenu.Name = "panelSideMenu";
             panelSideMenu.Size = new Size(200, 561);
             panelSideMenu.TabIndex = 0;
-            panelSideMenu.Paint += panelSideMenu_Paint;
             // 
             // btnLogs
             // 
             btnLogs.Dock = DockStyle.Top;
             btnLogs.FlatAppearance.BorderSize = 0;
+            btnLogs.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 30, 70);
+            btnLogs.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 30, 70);
             btnLogs.FlatStyle = FlatStyle.Flat;
             btnLogs.Font = new Font("Segoe UI", 14.25F);
             btnLogs.ForeColor = Color.White;
@@ -101,6 +116,8 @@
             // 
             btnSubscription.Dock = DockStyle.Top;
             btnSubscription.FlatAppearance.BorderSize = 0;
+            btnSubscription.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 30, 70);
+            btnSubscription.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 30, 70);
             btnSubscription.FlatStyle = FlatStyle.Flat;
             btnSubscription.Font = new Font("Segoe UI", 14.25F);
             btnSubscription.ForeColor = Color.White;
@@ -181,6 +198,8 @@
             // 
             btnPreferences.Dock = DockStyle.Top;
             btnPreferences.FlatAppearance.BorderSize = 0;
+            btnPreferences.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 30, 70);
+            btnPreferences.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 30, 70);
             btnPreferences.FlatStyle = FlatStyle.Flat;
             btnPreferences.Font = new Font("Segoe UI", 14.25F);
             btnPreferences.ForeColor = Color.White;
@@ -243,6 +262,8 @@
             // 
             btnVersions.Dock = DockStyle.Top;
             btnVersions.FlatAppearance.BorderSize = 0;
+            btnVersions.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 30, 70);
+            btnVersions.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 30, 70);
             btnVersions.FlatStyle = FlatStyle.Flat;
             btnVersions.Font = new Font("Segoe UI", 14.25F);
             btnVersions.ForeColor = Color.White;
@@ -305,6 +326,8 @@
             // 
             btnProfile.Dock = DockStyle.Top;
             btnProfile.FlatAppearance.BorderSize = 0;
+            btnProfile.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 30, 70);
+            btnProfile.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 30, 70);
             btnProfile.FlatStyle = FlatStyle.Flat;
             btnProfile.Font = new Font("Segoe UI", 14.25F);
             btnProfile.ForeColor = Color.White;
@@ -322,6 +345,8 @@
             // 
             btnHome.Dock = DockStyle.Top;
             btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 30, 70);
+            btnHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 30, 70);
             btnHome.FlatStyle = FlatStyle.Flat;
             btnHome.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHome.ForeColor = Color.White;
@@ -347,7 +372,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.MyAMP_rogner;
-            pictureBox1.Location = new Point(12, 27);
+            pictureBox1.Location = new Point(12, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(86, 81);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -357,11 +382,47 @@
             // panelHeader
             // 
             panelHeader.BackColor = Color.FromArgb(11, 7, 17);
+            panelHeader.Controls.Add(profileIcon);
+            panelHeader.Controls.Add(localhostIcon);
+            panelHeader.Controls.Add(websiteIcon);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(200, 0);
             panelHeader.Name = "panelHeader";
             panelHeader.Size = new Size(766, 67);
             panelHeader.TabIndex = 1;
+            // 
+            // profileIcon
+            // 
+            profileIcon.Image = (Image)resources.GetObject("profileIcon.Image");
+            profileIcon.Location = new Point(690, 12);
+            profileIcon.Name = "profileIcon";
+            profileIcon.Size = new Size(41, 35);
+            profileIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            profileIcon.TabIndex = 3;
+            profileIcon.TabStop = false;
+            profileIcon.Click += profileIcon_Click;
+            // 
+            // localhostIcon
+            // 
+            localhostIcon.Image = (Image)resources.GetObject("localhostIcon.Image");
+            localhostIcon.Location = new Point(92, 12);
+            localhostIcon.Name = "localhostIcon";
+            localhostIcon.Size = new Size(37, 35);
+            localhostIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            localhostIcon.TabIndex = 2;
+            localhostIcon.TabStop = false;
+            localhostIcon.Click += localhostIcon_Click;
+            // 
+            // websiteIcon
+            // 
+            websiteIcon.Image = (Image)resources.GetObject("websiteIcon.Image");
+            websiteIcon.Location = new Point(18, 12);
+            websiteIcon.Name = "websiteIcon";
+            websiteIcon.Size = new Size(41, 35);
+            websiteIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            websiteIcon.TabIndex = 1;
+            websiteIcon.TabStop = false;
+            websiteIcon.Click += websiteIcon_Click;
             // 
             // panelContainer
             // 
@@ -372,6 +433,40 @@
             panelContainer.Size = new Size(766, 494);
             panelContainer.TabIndex = 2;
             // 
+            // startApache
+            // 
+            startApache.Location = new Point(0, 0);
+            startApache.Name = "startApache";
+            startApache.Size = new Size(75, 23);
+            startApache.TabIndex = 0;
+            // 
+            // startMySQL
+            // 
+            startMySQL.Location = new Point(0, 0);
+            startMySQL.Name = "startMySQL";
+            startMySQL.Size = new Size(75, 23);
+            startMySQL.TabIndex = 0;
+            // 
+            // statusApacheCircle
+            // 
+            statusApacheCircle.Location = new Point(0, 0);
+            statusApacheCircle.Name = "statusApacheCircle";
+            statusApacheCircle.Size = new Size(200, 100);
+            statusApacheCircle.TabIndex = 0;
+            // 
+            // statusSQLCircle
+            // 
+            statusSQLCircle.Location = new Point(0, 0);
+            statusSQLCircle.Name = "statusSQLCircle";
+            statusSQLCircle.Size = new Size(200, 100);
+            statusSQLCircle.TabIndex = 0;
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Icon = (Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "MyAMP";
+            notifyIcon1.Visible = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -380,6 +475,7 @@
             Controls.Add(panelContainer);
             Controls.Add(panelHeader);
             Controls.Add(panelSideMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(950, 600);
             Name = "Form1";
             Text = "MyAMP";
@@ -389,6 +485,10 @@
             panelProfileSubmenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)profileIcon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)localhostIcon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)websiteIcon).EndInit();
             ResumeLayout(false);
         }
 
@@ -415,5 +515,9 @@
         private Panel panelHeader;
         private PictureBox pictureBox1;
         private Panel panelContainer;
+        private PictureBox profileIcon;
+        private PictureBox localhostIcon;
+        private PictureBox websiteIcon;
+        private NotifyIcon notifyIcon1;
     }
 }

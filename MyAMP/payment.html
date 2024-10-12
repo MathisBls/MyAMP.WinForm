@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+
+    <!-- Mettre à jour la Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://cdn.ngrok.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; frame-src https://js.stripe.com;">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap">
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        #card-element {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #card-errors {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulaire de paiement</h2>
+    <form id="payment-form">
+        <div id="card-element"></div>
+        <button id="submit">Payer</button>
+        <div id="card-errors" role="alert"></div>
+    </form>
+
+    <script>
+        // Alert pour vérifier si le JavaScript est chargé
+        alert("JavaScript est chargé.");
+
+        var stripe = Stripe('pk_test_51NaM2hEkVmMr47RHwOTWd2LII7Nu8qhau3kyhqwvx7VtliojYYsr48aoU9K1bUOcjLAxrxfrkTDV02RhN0LqROF200I6NXDR5g');
+        var elements = stripe.elements();
+        var cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            console.log("Formulaire soumis");
+
+            stripe.createToken(cardElement).then(function (result) {
+                if (result.error) {
+                    document.getElementById('card-errors').textContent = result.error.message;
+                    console.error("Erreur Stripe : ", result.error);
+                } else {
+                    var token = result.token.id;
+                    console.log("Token créé : ", token);
+                    if (window.scriptingBridge && typeof window.scriptingBridge.ReceiveToken === 'function') {
+                        window.scriptingBridge.ReceiveToken(token);
+                    } else {
+                        console.error("scriptingBridge n'est pas disponible !");
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -13,4 +13,12 @@
     <SourceRoot Include="C:\Users\Asuki\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)chromiumembeddedframework.runtime.win-x86\128.4.9\buildTransitive\chromiumembeddedframework.runtime.win-x86.props" Condition="Exists('$(NuGetPackageRoot)chromiumembeddedframework.runtime.win-x86\128.4.9\buildTransitive\chromiumembeddedframework.runtime.win-x86.props')" />
+    <Import Project="$(NuGetPackageRoot)chromiumembeddedframework.runtime.win-x64\128.4.9\buildTransitive\chromiumembeddedframework.runtime.win-x64.props" Condition="Exists('$(NuGetPackageRoot)chromiumembeddedframework.runtime.win-x64\128.4.9\buildTransitive\chromiumembeddedframework.runtime.win-x64.props')" />
+    <Import Project="$(NuGetPackageRoot)cefsharp.common\128.4.90\buildTransitive\CefSharp.Common.props" Condition="Exists('$(NuGetPackageRoot)cefsharp.common\128.4.90\buildTransitive\CefSharp.Common.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_Web_WebView2 Condition=" '$(PkgMicrosoft_Web_WebView2)' == '' ">C:\Users\Asuki\.nuget\packages\microsoft.web.webview2\1.0.2792.45</PkgMicrosoft_Web_WebView2>
+  </PropertyGroup>
 </Project>

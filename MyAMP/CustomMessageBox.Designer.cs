@@ -34,9 +34,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(400, 180);
+            AutoSize = true;
+            ClientSize = new Size(403, 180);
             Name = "CustomMessageBox";
             Text = "Form2";
+            Load += CustomMessageBox_Load;
             ResumeLayout(false);
         }
 

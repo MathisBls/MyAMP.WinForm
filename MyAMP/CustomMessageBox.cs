@@ -41,7 +41,12 @@ namespace MyAMP
 
         private void CustomMessageBox_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawRectangle(new Pen(Color.FromArgb(255, 30, 70), 3), 0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+            e.Graphics.DrawRectangle(new Pen(Color.FromArgb(11, 7, 17), 3), 0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+        }
+
+        private void CustomMessageBox_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
