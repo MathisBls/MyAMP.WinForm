@@ -7,18 +7,16 @@ public class NotifyIconMenuManagerRightClick
 {
     private NotifyIcon _notifyIcon;
     private ContextMenuStrip _contextMenu;
-    private Form _mainForm; // Référence à la fenêtre principale
+    private Form _mainForm; 
 
     public NotifyIconMenuManagerRightClick(NotifyIcon notifyIcon, Form mainForm)
     {
         _notifyIcon = notifyIcon;
-        _mainForm = mainForm; // Initialisation de la référence à la fenêtre principale
+        _mainForm = mainForm; 
         _contextMenu = new ContextMenuStrip();
 
-        // Appliquer le renderer personnalisé
         _contextMenu.Renderer = new CustomContextMenuRenderer();
 
-        // Ajouter des éléments au menu contextuel (clic droit)
         _contextMenu.Items.Add("Afficher les logs", null, ShowLogs_Click);
         _contextMenu.Items.Add("Configurer Apache", null, ConfigureApache_Click);
         _contextMenu.Items.Add("Configurer MySQL", null, ConfigureMySQL_Click);
@@ -104,10 +102,8 @@ public class NotifyIconMenuManagerRightClick
         return CallNextHookEx(_hookID, nCode, wParam, lParam);
     }
 
-    // Méthode pour vérifier si le clic est à l'intérieur de la fenêtre de l'application
     private bool IsClickInsideApplication()
     {
-        // Vérifier si le clic est à l'intérieur de la fenêtre principale de l'application
         return _mainForm.Bounds.Contains(Cursor.Position);
     }
 

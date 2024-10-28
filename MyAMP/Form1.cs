@@ -100,12 +100,10 @@ namespace MyAMP
         {
             if (e.Button == MouseButtons.Left)
             {
-                // Clic gauche, afficher le menu contextuel pour clic gauche
                 _menuManagerLeftClick.ShowMenu();
             }
             else if (e.Button == MouseButtons.Right)
             {
-                // Clic droit, afficher le menu contextuel pour clic droit
                 _menuManagerRightClick.ShowMenu();
             }
         }
