@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyAMP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc88fafb23830dee08d68636a72f0658400f1c3d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4132f8cdc75aa2129a0abf8ec025ed213d75822")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyAMP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyAMP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
